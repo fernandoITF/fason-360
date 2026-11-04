@@ -24,8 +24,10 @@ const ESTADOS = {
 }
 const VEL_PROMEDIO_KMH = 35 // tránsito urbano / conurbano
 const FACTOR_RUTA = 1.3 // línea recta -> distancia por calle
+const FLETE_POR_KM = 1800 // ARS por km recorrido (utilitario con chofer) – valor de referencia simulado
 
 const fmt = (n) => Number(n).toLocaleString('es-AR')
+const ars = (n) => '$ ' + Math.round(n).toLocaleString('es-AR')
 const rgb = (c) => `rgb(${c.join(',')})`
 
 function distanciaKm([lng1, lat1], [lng2, lat2]) {
@@ -51,6 +53,7 @@ export default function App() {
   // Simulador de pedido
   const [procesoSim, setProcesoSim] = useState('Inyección')
   const [horasSim, setHorasSim] = useState(8)
+  const [ordenSim, setOrdenSim] = useState('costo') // 'costo' o 'cercania'
   const [cliente, setCliente] = useState([-58.3816, -34.6037]) // Obelisco por defecto
 
   // Contador de visitas: suma 1 por sesión de navegador y muestra el total
@@ -124,11 +127,30 @@ export default function App() {
       .filter((m) => m.categoria === procesoSim && m.valor >= horasSim)
       .map((m) => {
         const km = distanciaKm(cliente, [m.longitud, m.latitud])
-        return { ...m, kmIda: km, kmTotal: km * 2, minutos: Math.round((km / VEL_PROMEDIO_KMH) * 60) }
+        const costoProceso = horasSim * (m.tarifa_hora || 0)
+        const costoFlete = km * 2 * FLETE_POR_KM
+        return {
+          ...m,
+          kmIda: km,
+          kmTotal: km * 2,
+          minutos: Math.round((km / VEL_PROMEDIO_KMH) * 60),
+          costoProceso,
+          costoFlete,
+          costoTotal: costoProceso + costoFlete,
+        }
       })
-      .sort((a, b) => a.kmIda - b.kmIda)
+      .sort((a, b) => (ordenSim === 'costo' ? a.costoTotal - b.costoTotal : a.kmIda - b.kmIda))
       .slice(0, 3)
-  }, [maquinas, procesoSim, horasSim, cliente])
+  }, [maquinas, procesoSim, horasSim, cliente, ordenSim])
+
+  // Cotización de un pedido existente: horas × tarifa de la planta + km × flete
+  const cotizarPedido = (p) => {
+    const m = maquinas.find((x) => x.id === p.maquina_id)
+    if (!m || !m.tarifa_hora) return null
+    const proceso = p.horas_maquina * m.tarifa_hora
+    const flete = p.km_logistica * FLETE_POR_KM
+    return { tarifa: m.tarifa_hora, proceso, flete, total: proceso + flete }
+  }
 
   // Etapa 5: capas de deck.gl (posición = [longitud, latitud])
   const capas = [
@@ -207,17 +229,21 @@ export default function App() {
         html: `<b>${object.nombre}</b><br/>
           Proceso: <b>${object.categoria}</b><br/>
           Horas libres esta semana: <b>${object.valor} h</b><br/>
+          ${object.tarifa_hora ? `Tarifa: <b>${ars(object.tarifa_hora)} / h</b><br/>` : ''}
           Ocupación actual: ${object.ocupacion_pct}%<br/>
           ${object.parque} · ${object.partido}`,
       }
-    if (layer.id === 'pedidos' || layer.id === 'clientes')
+    if (layer.id === 'pedidos' || layer.id === 'clientes') {
+      const c = cotizarPedido(object)
       return {
         html: `<b>${object.codigo} · ${object.cliente}</b><br/>
           Proceso: ${object.proceso} en ${object.planta}<br/>
           Estado: <b>${object.estado}</b><br/>
           ${object.horas_maquina} h máquina · ${object.km_logistica} km (MP + entrega)<br/>
-          Lead time: ${object.lead_time_dias} días`,
+          Lead time: ${object.lead_time_dias} días
+          ${c ? `<br/>Cotización: <b>${ars(c.total)}</b> (fasón ${ars(c.proceso)} + flete ${ars(c.flete)})` : ''}`,
       }
+    }
     return null
   }
 
@@ -314,6 +340,12 @@ export default function App() {
           <label className="campo">Horas de máquina necesarias
             <input type="number" min="1" max="60" value={horasSim} onChange={(e) => setHorasSim(Number(e.target.value) || 1)} />
           </label>
+          <label className="campo">Ordenar por
+            <select value={ordenSim} onChange={(e) => setOrdenSim(e.target.value)}>
+              <option value="costo">Menor costo total (fasón + flete)</option>
+              <option value="cercania">Cercanía</option>
+            </select>
+          </label>
           <h3>Plantas sugeridas</h3>
           {sugeridas.length === 0 && <p className="ayuda">No hay máquinas con esas horas libres esta semana.</p>}
           {sugeridas.map((s, i) => (
@@ -322,8 +354,16 @@ export default function App() {
               <div>{s.nombre.split('– ')[1]} · {s.parque}</div>
               <div><b>{s.valor} h</b> libres · {fmt(Math.round(s.kmIda))} km · ~{s.minutos} min de traslado</div>
               <div className="log">Logística integral: {fmt(Math.round(s.kmTotal))} km (retiro de MP + entrega)</div>
+              {s.tarifa_hora > 0 && (
+                <div className="cotiz">
+                  <div><span>Fasón: {horasSim} h × {ars(s.tarifa_hora)}</span><span>{ars(s.costoProceso)}</span></div>
+                  <div><span>Flete: {fmt(Math.round(s.kmTotal))} km × {ars(FLETE_POR_KM)}</span><span>{ars(s.costoFlete)}</span></div>
+                  <div className="total"><span>Total estimado</span><span>{ars(s.costoTotal)}</span></div>
+                </div>
+              )}
             </div>
           ))}
+          <p className="nota">Tarifas y flete: valores de referencia simulados para la PoC (ARS, sin IVA).</p>
         </aside>
       </div>
     </div>

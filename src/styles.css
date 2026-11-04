@@ -79,3 +79,9 @@ button.activo { background: #0f172a; color: #fff; border-color: #0f172a; }
   button { padding: 4px 10px; font-size: .8rem; }
   .tooltip { max-width: min(240px, calc(100% - 24px)); }
 }
+
+/* Cotización en el simulador */
+.cotiz { margin-top: 4px; border-top: 1px dashed #cbd5e1; padding-top: 4px; display: flex; flex-direction: column; gap: 2px; font-size: .8rem; }
+.cotiz > div { display: flex; justify-content: space-between; gap: 8px; }
+.cotiz .total { font-weight: 700; color: #0f172a; font-size: .88rem; }
+.nota { color: #94a3b8; font-size: .72rem; margin: 6px 0 0; }
