@@ -128,11 +128,12 @@ export default function App() {
       .map((m) => {
         const km = distanciaKm(cliente, [m.longitud, m.latitud])
         const costoProceso = horasSim * (m.tarifa_hora || 0)
-        const costoFlete = km * 2 * FLETE_POR_KM
+        const kmTotal = Math.round(km * 2) // km facturados (ida + vuelta, redondeado)
+        const costoFlete = kmTotal * FLETE_POR_KM
         return {
           ...m,
           kmIda: km,
-          kmTotal: km * 2,
+          kmTotal,
           minutos: Math.round((km / VEL_PROMEDIO_KMH) * 60),
           costoProceso,
           costoFlete,
