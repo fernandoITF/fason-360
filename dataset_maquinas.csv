@@ -1,0 +1,46 @@
+id,nombre,empresa,categoria,latitud,longitud,valor,ocupacion_pct,parque,partido,fecha,descripcion
+1,Plásticos Litoral SAS – Inyectora 120 t,Plásticos Litoral SAS,Inyección,-34.70122,-58.58144,36,50,Zona Ind. La Matanza,La Matanza,2026-10-26,36 h libres esta semana · ocupación 50%
+2,Plásticos Norte SA – Inyectora 180 t,Plásticos Norte SA,Inyección,-34.46271,-58.75058,12,88,PI Tortuguitas,Malvinas Argentinas,2026-10-26,12 h libres esta semana · ocupación 88%
+3,Plásticos Pampa SA – Inyectora 250 t,Plásticos Pampa SA,Inyección,-34.47982,-58.74257,6,95,PI Tortuguitas,Malvinas Argentinas,2026-10-26,6 h libres esta semana · ocupación 95%
+4,Plásticos Litoral SRL – Inyectora 80 t,Plásticos Litoral SRL,Inyección,-34.84927,-58.5114,6,94,PI Ezeiza,Ezeiza,2026-10-26,6 h libres esta semana · ocupación 94%
+5,Plásticos Oeste SA – Inyectora 350 t,Plásticos Oeste SA,Inyección,-34.43744,-58.87619,22,8,PI Pilar,Pilar,2026-10-26,22 h libres esta semana · ocupación 8%
+6,Plásticos del Sur SAS – Inyectora 80 t,Plásticos del Sur SAS,Inyección,-34.17731,-58.97639,36,25,PI Campana,Campana,2026-10-26,36 h libres esta semana · ocupación 25%
+7,Plásticos Express SA – Inyectora 180 t,Plásticos Express SA,Inyección,-34.70628,-58.59224,8,92,Zona Ind. La Matanza,La Matanza,2026-10-26,8 h libres esta semana · ocupación 92%
+8,Plásticos Norte SA – Inyectora 80 t,Plásticos Norte SA,Inyección,-34.78649,-58.18506,22,8,PI Plátanos,Berazategui,2026-10-26,22 h libres esta semana · ocupación 8%
+9,Plásticos Industrial SRL – Inyectora 80 t,Plásticos Industrial SRL,Inyección,-34.17502,-58.9804,6,75,PI Campana,Campana,2026-10-26,6 h libres esta semana · ocupación 75%
+10,Plásticos Pampa SAS – Inyectora 120 t,Plásticos Pampa SAS,Inyección,-34.71299,-58.58499,8,89,Zona Ind. La Matanza,La Matanza,2026-10-26,8 h libres esta semana · ocupación 89%
+11,Extrusiones del Sur SA – Extrusora monohusillo Ø45 mm,Extrusiones del Sur SA,Extrusión,-34.7758,-58.18391,24,50,PI Plátanos,Berazategui,2026-10-26,24 h libres esta semana · ocupación 50%
+12,Extrusiones Patagonia SRL – Extrusora monohusillo Ø60 mm,Extrusiones Patagonia SRL,Extrusión,-34.47609,-58.75957,22,8,PI Tortuguitas,Malvinas Argentinas,2026-10-26,22 h libres esta semana · ocupación 8%
+13,Extrusiones Andina SA – Extrusora monohusillo Ø45 mm,Extrusiones Andina SA,Extrusión,-34.70979,-58.57835,30,25,Zona Ind. La Matanza,La Matanza,2026-10-26,30 h libres esta semana · ocupación 25%
+14,Extrusiones Delta SRL – Extrusora monohusillo Ø60 mm,Extrusiones Delta SRL,Extrusión,-34.6169,-58.95189,46,4,PI General Rodríguez,General Rodríguez,2026-10-26,46 h libres esta semana · ocupación 4%
+15,Extrusiones Norte SRL – Extrusora monohusillo Ø60 mm,Extrusiones Norte SRL,Extrusión,-34.47254,-58.74149,48,60,PI Tortuguitas,Malvinas Argentinas,2026-10-26,48 h libres esta semana · ocupación 60%
+16,Extrusiones Delta SA – Extrusora monohusillo Ø45 mm,Extrusiones Delta SA,Extrusión,-34.4644,-58.66777,24,75,PI Tigre (El Talar),Tigre,2026-10-26,24 h libres esta semana · ocupación 75%
+17,Mecanizados Pampa SA – Torno CNC Ø400 mm de volteo,Mecanizados Pampa SA,Torno CNC,-34.42784,-58.74601,6,85,PI OKS Garín,Escobar,2026-10-26,6 h libres esta semana · ocupación 85%
+18,Mecanizados Precisión SA – Torno CNC Ø320 mm de volteo,Mecanizados Precisión SA,Torno CNC,-34.83112,-58.38898,48,33,PI Burzaco,Almirante Brown,2026-10-26,48 h libres esta semana · ocupación 33%
+19,Mecanizados Express SRL – Torno CNC Ø320 mm de volteo,Mecanizados Express SRL,Torno CNC,-34.8633,-58.5052,16,83,PI Ezeiza,Ezeiza,2026-10-26,16 h libres esta semana · ocupación 83%
+20,Mecanizados Patagonia SAS – Torno CNC Ø250 mm de volteo,Mecanizados Patagonia SAS,Torno CNC,-34.8219,-58.25871,30,75,PI Florencio Varela,Florencio Varela,2026-10-26,30 h libres esta semana · ocupación 75%
+21,Mecanizados Industrial SAS – Torno CNC Ø500 mm de volteo,Mecanizados Industrial SAS,Torno CNC,-34.62586,-58.95438,20,79,PI General Rodríguez,General Rodríguez,2026-10-26,20 h libres esta semana · ocupación 79%
+22,Mecanizados Litoral SRL – Torno CNC Ø250 mm de volteo,Mecanizados Litoral SRL,Torno CNC,-34.5719,-58.53028,20,72,Zona Ind. San Martín,San Martín,2026-10-26,20 h libres esta semana · ocupación 72%
+23,Mecanizados Norte SA – Torno CNC Ø320 mm de volteo,Mecanizados Norte SA,Torno CNC,-34.47652,-58.74858,48,50,PI Tortuguitas,Malvinas Argentinas,2026-10-26,48 h libres esta semana · ocupación 50%
+24,Mecanizados Industrial SRL – Torno CNC Ø250 mm de volteo,Mecanizados Industrial SRL,Torno CNC,-34.45702,-58.66634,36,50,PI Tigre (El Talar),Tigre,2026-10-26,36 h libres esta semana · ocupación 50%
+25,Mecanizados Oeste SRL – Torno CNC Ø500 mm de volteo,Mecanizados Oeste SRL,Torno CNC,-34.47523,-58.74926,8,80,PI Tortuguitas,Malvinas Argentinas,2026-10-26,8 h libres esta semana · ocupación 80%
+26,Matricería Pampa SRL – Centro de mecanizado 600 mm en X,Matricería Pampa SRL,Centro de mecanizado,-34.62623,-58.78541,12,88,PI Moreno,Moreno,2026-10-26,12 h libres esta semana · ocupación 88%
+27,Matricería Pampa SAS – Centro de mecanizado 600 mm en X,Matricería Pampa SAS,Centro de mecanizado,-34.70015,-58.58518,6,75,Zona Ind. La Matanza,La Matanza,2026-10-26,6 h libres esta semana · ocupación 75%
+28,Matricería Norte SA – Centro de mecanizado 1000 mm en X,Matricería Norte SA,Centro de mecanizado,-34.72039,-58.59453,8,80,Zona Ind. La Matanza,La Matanza,2026-10-26,8 h libres esta semana · ocupación 80%
+29,Matricería Oeste SA – Centro de mecanizado 600 mm en X,Matricería Oeste SA,Centro de mecanizado,-34.83593,-58.24953,12,90,PI Florencio Varela,Florencio Varela,2026-10-26,12 h libres esta semana · ocupación 90%
+30,Matricería Patagonia SAS – Centro de mecanizado 600 mm en X,Matricería Patagonia SAS,Centro de mecanizado,-34.85564,-58.52514,6,92,PI Ezeiza,Ezeiza,2026-10-26,6 h libres esta semana · ocupación 92%
+31,Matricería Norte SRL – Centro de mecanizado 600 mm en X,Matricería Norte SRL,Centro de mecanizado,-34.82611,-58.4029,22,8,PI Burzaco,Almirante Brown,2026-10-26,22 h libres esta semana · ocupación 8%
+32,Matricería Integral SAS – Centro de mecanizado 1300 mm en X,Matricería Integral SAS,Centro de mecanizado,-34.86423,-58.52083,24,67,PI Ezeiza,Ezeiza,2026-10-26,24 h libres esta semana · ocupación 67%
+33,Carpintería del Sur SA – Router CNC mesa 2100x3100,Carpintería del Sur SA,Router CNC madera,-34.7109,-58.58901,40,58,Zona Ind. La Matanza,La Matanza,2026-10-26,40 h libres esta semana · ocupación 58%
+34,Carpintería Patagonia SAS – Router CNC mesa 2100x3100,Carpintería Patagonia SAS,Router CNC madera,-34.41846,-58.75447,8,93,PI OKS Garín,Escobar,2026-10-26,8 h libres esta semana · ocupación 93%
+35,Carpintería Andina SAS – Router CNC mesa 1300x2500,Carpintería Andina SAS,Router CNC madera,-34.71586,-58.60173,12,75,Zona Ind. La Matanza,La Matanza,2026-10-26,12 h libres esta semana · ocupación 75%
+36,Carpintería Patagonia SRL – Router CNC mesa 1500x3000,Carpintería Patagonia SRL,Router CNC madera,-34.68293,-58.35026,36,70,Zona Ind. Avellaneda,Avellaneda,2026-10-26,36 h libres esta semana · ocupación 70%
+37,Carpintería Industrial SA – Router CNC mesa 1300x2500,Carpintería Industrial SA,Router CNC madera,-34.61102,-58.95224,16,78,PI General Rodríguez,General Rodríguez,2026-10-26,16 h libres esta semana · ocupación 78%
+38,Carpintería Oeste SRL – Router CNC mesa 2100x3100,Carpintería Oeste SRL,Router CNC madera,-34.8199,-58.40696,36,10,PI Burzaco,Almirante Brown,2026-10-26,36 h libres esta semana · ocupación 10%
+39,Carpintería Patagonia SA – Router CNC mesa 1500x3000,Carpintería Patagonia SA,Router CNC madera,-34.4072,-58.75336,8,80,PI OKS Garín,Escobar,2026-10-26,8 h libres esta semana · ocupación 80%
+40,Metalúrgica Andina SA – Láser fibra 12 kW,Metalúrgica Andina SA,Corte láser,-34.45506,-58.65882,36,62,PI Tigre (El Talar),Tigre,2026-10-26,36 h libres esta semana · ocupación 62%
+41,Metalúrgica Andina SAS – Láser fibra 6 kW,Metalúrgica Andina SAS,Corte láser,-34.64021,-58.80124,6,94,PI Moreno,Moreno,2026-10-26,6 h libres esta semana · ocupación 94%
+42,Metalúrgica Andina SRL – Láser fibra 12 kW,Metalúrgica Andina SRL,Corte láser,-34.8335,-58.39642,6,94,PI Burzaco,Almirante Brown,2026-10-26,6 h libres esta semana · ocupación 94%
+43,Metalúrgica Precisión SRL – Láser fibra 1.5 kW,Metalúrgica Precisión SRL,Corte láser,-34.71744,-58.58354,16,67,Zona Ind. La Matanza,La Matanza,2026-10-26,16 h libres esta semana · ocupación 67%
+44,Metalúrgica Norte SAS – Láser fibra 3 kW,Metalúrgica Norte SAS,Corte láser,-34.71938,-58.58915,24,80,Zona Ind. La Matanza,La Matanza,2026-10-26,24 h libres esta semana · ocupación 80%
+45,Metalúrgica Patagonia SAS – Láser fibra 1.5 kW,Metalúrgica Patagonia SAS,Corte láser,-34.45523,-58.66185,6,95,PI Tigre (El Talar),Tigre,2026-10-26,6 h libres esta semana · ocupación 95%

@@ -1,0 +1,17 @@
+id,codigo,cliente,proceso,cliente_lat,cliente_lng,maquina_id,planta,planta_lat,planta_lng,estado,horas_maquina,km_logistica,lead_time_dias,fecha
+1,PED-1001,Muebles Nuevo Hogar,Router CNC madera,-34.6037,-58.43,36,Carpintería Patagonia SRL,-34.68293,-58.35026,En proceso,12,30,4,2026-10-16
+2,PED-1002,Envases Riachuelo,Inyección,-34.645,-58.402,1,Plásticos Litoral SAS,-34.70122,-58.58144,Entrega en camino,8,46,6,2026-10-17
+3,PED-1003,Startup Biotec Saavedra,Centro de mecanizado,-34.553,-58.49,28,Matricería Norte SA,-34.72039,-58.59453,Entregado,6,54,6,2026-10-18
+4,PED-1004,Electro Quilmes,Inyección,-34.724,-58.254,8,Plásticos Norte SA,-34.78649,-58.18506,Retiro de materia prima,16,24,6,2026-10-19
+5,PED-1005,Riego Agro Luján,Extrusión,-34.57,-59.105,14,Extrusiones Delta SRL,-34.6169,-58.95189,En proceso,6,38,7,2026-10-20
+6,PED-1006,Bicis Urbanas Palermo,Corte láser,-34.58,-58.425,43,Metalúrgica Precisión SRL,-34.71744,-58.58354,Entrega en camino,12,54,6,2026-10-21
+7,PED-1007,Repuestos Morón,Torno CNC,-34.653,-58.62,22,Mecanizados Litoral SRL,-34.5719,-58.53028,Entregado,16,32,5,2026-10-22
+8,PED-1008,Stand Ferias Belgrano,Router CNC madera,-34.562,-58.456,36,Carpintería Patagonia SRL,-34.68293,-58.35026,Retiro de materia prima,16,44,5,2026-10-23
+9,PED-1009,Cosmética Caseros,Inyección,-34.605,-58.565,1,Plásticos Litoral SAS,-34.70122,-58.58144,En proceso,16,28,3,2026-10-24
+10,PED-1010,Talleres Lanús,Corte láser,-34.707,-58.392,42,Metalúrgica Andina SRL,-34.8335,-58.39642,Entrega en camino,12,36,5,2026-10-15
+11,PED-1011,Prototipos UTN Pacheco,Centro de mecanizado,-34.456,-58.625,26,Matricería Pampa SRL,-34.62623,-58.78541,Entregado,4,62,4,2026-10-16
+12,PED-1012,Cables Merlo,Extrusión,-34.665,-58.728,13,Extrusiones Andina SA,-34.70979,-58.57835,Retiro de materia prima,6,38,4,2026-10-17
+13,PED-1013,Agro Partes Cañuelas,Torno CNC,-35.052,-58.76,19,Mecanizados Express SRL,-34.8633,-58.5052,En proceso,6,82,7,2026-10-18
+14,PED-1014,Juguetes San Justo,Inyección,-34.68,-58.56,10,Plásticos Pampa SAS,-34.71299,-58.58499,Entrega en camino,16,12,7,2026-10-19
+15,PED-1015,Señalética La Plata,Corte láser,-34.921,-57.955,42,Metalúrgica Andina SRL,-34.8335,-58.39642,Entregado,16,108,5,2026-10-20
+16,PED-1016,Hidráulica Escobar,Torno CNC,-34.348,-58.795,17,Mecanizados Pampa SA,-34.42784,-58.74601,Retiro de materia prima,12,26,6,2026-10-21
