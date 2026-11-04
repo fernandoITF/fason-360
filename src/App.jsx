@@ -221,8 +221,15 @@ export default function App() {
     return null
   }
 
+  // Click / toque: sobre un punto muestra su info (útil en celular); en el mapa ubica la empresa del simulador
   const alHacerClick = (info) => {
-    if (!info.object && info.coordinate) setCliente(info.coordinate)
+    const t = info.object ? tooltip(info) : null
+    if (t) {
+      setHover({ x: info.x, y: info.y, w: info.viewport?.width || 800, h: info.viewport?.height || 420, html: t.html })
+      return
+    }
+    setHover(null)
+    if (info.coordinate) setCliente(info.coordinate)
   }
 
   return (
