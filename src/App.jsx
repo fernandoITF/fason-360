@@ -46,6 +46,7 @@ export default function App() {
   const [verPedidos, setVerPedidos] = useState(true)
   const [verCalor, setVerCalor] = useState(false)
   const [visitas, setVisitas] = useState(null)
+  const [hover, setHover] = useState(null)
 
   // Simulador de pedido
   const [procesoSim, setProcesoSim] = useState('Inyección')
@@ -262,9 +263,30 @@ export default function App() {
 
       <div className="cuerpo">
         <div className="mapa">
-          <DeckGL initialViewState={VISTA_INICIAL} controller={true} layers={capas} getTooltip={tooltip} onClick={alHacerClick}>
+          <DeckGL
+            initialViewState={VISTA_INICIAL}
+            controller={true}
+            layers={capas}
+            onHover={(info) => {
+              const t = info.object ? tooltip(info) : null
+              setHover(t ? { x: info.x, y: info.y, w: info.viewport?.width || 800, h: info.viewport?.height || 420, html: t.html } : null)
+            }}
+            getCursor={({ isHovering, isDragging }) => (isDragging ? 'grabbing' : isHovering ? 'pointer' : 'grab')}
+            onClick={alHacerClick}
+          >
             <Map mapStyle={MAP_STYLE} />
           </DeckGL>
+          {hover && (
+            <div
+              className="tooltip"
+              style={{
+                left: hover.x + 12,
+                top: hover.y + 12,
+                transform: `translate(${hover.x > hover.w - 280 ? 'calc(-100% - 24px)' : '0'}, ${hover.y > hover.h - 140 ? 'calc(-100% - 24px)' : '0'})`,
+              }}
+              dangerouslySetInnerHTML={{ __html: hover.html }}
+            />
+          )}
           <div className="leyenda">
             <b>Estado del pedido</b>
             {Object.entries(ESTADOS).map(([k, c]) => (
