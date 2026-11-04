@@ -287,9 +287,9 @@ export default function App() {
             <div
               className="tooltip"
               style={{
-                left: hover.x + 12,
-                top: hover.y + 12,
-                transform: `translate(${hover.x > hover.w - 280 ? 'calc(-100% - 24px)' : '0'}, ${hover.y > hover.h - 140 ? 'calc(-100% - 24px)' : '0'})`,
+                // Se abre hacia el lado con más espacio para no cortarse en pantallas chicas
+                ...(hover.x > hover.w / 2 ? { right: hover.w - hover.x + 12 } : { left: hover.x + 12 }),
+                ...(hover.y > hover.h / 2 ? { bottom: hover.h - hover.y + 12 } : { top: hover.y + 12 }),
               }}
               dangerouslySetInnerHTML={{ __html: hover.html }}
             />
