@@ -8,7 +8,7 @@ Muchas pymes industriales del GBA tienen máquinas paradas, mientras otras empre
 Armamos un dataset de 45 máquinas en parques industriales reales del GBA y 16 pedidos de prueba (datos simulados para la PoC).
 El mapa muestra cada máquina con horas libres por proceso (inyección, extrusión, CNC, router, láser) y los pedidos con su recorrido cliente → planta.
 Permite ver dónde está la capacidad ociosa, el estado logístico de cada pedido y qué planta conviene según cercanía y horas disponibles.
-En una segunda versión: carga real de capacidad por las pymes, cotización con flete incluido, ruteo de retiros y entregas, y seguimiento con OEE.
+Incluye cotización estimada (fasón + flete). En una segunda versión: carga real de capacidad y tarifas por las pymes, ruteo de retiros y entregas, y seguimiento con OEE.
 
 ## Propuesta de valor
 
@@ -26,7 +26,7 @@ Diferencial frente a plataformas como Xometry: es geográfica y local (cercanía
 | `src/App.jsx` | Consulta a Supabase, indicadores, mapa deck.gl, tooltip y simulador |
 | `public/datos_ejemplo.json` | Copia de los datos para el modo demo (solo si falta configurar Supabase) |
 
-Tabla `puntos`: `categoria` = proceso · `valor` = horas-máquina libres en la semana.
+Tabla `puntos`: `categoria` = proceso · `valor` = horas-máquina libres en la semana · `tarifa_hora` = precio de referencia en ARS por hora-máquina (simulado).
 Tabla `pedidos`: `estado` = Retiro de materia prima / En proceso / Entrega en camino / Entregado · `km_logistica` = ida con MP + vuelta con producto.
 
 ## Qué muestra la app
@@ -34,13 +34,14 @@ Tabla `pedidos`: `estado` = Retiro de materia prima / En proceso / Entrega en ca
 - **4 indicadores** calculados con los datos de Supabase: máquinas con capacidad ociosa, horas libres de la semana, pedidos en curso y km de logística gestionados.
 - **Mapa deck.gl**: puntos de máquinas por color de proceso (tamaño = horas libres), arcos cliente → planta por estado del pedido, mapa de calor opcional (HeatmapLayer, desafío nivel 2) y filtro por proceso.
 - **Tooltip** al pasar el mouse: empresa, máquina, proceso, horas libres, ocupación; o datos del pedido.
-- **Simulador de pedido**: click en el mapa para ubicar la empresa cliente, elegir proceso y horas necesarias → las 3 plantas más cercanas con horas suficientes, con km y tiempo de traslado y los km de la logística integral.
+- **Simulador de pedido**: click en el mapa para ubicar la empresa cliente, elegir proceso y horas necesarias → las 3 plantas con horas suficientes (ordenadas por menor costo total o por cercanía), con km, tiempo de traslado y **cotización**: fasón (horas × tarifa) + flete (km × $/km).
+- **Cotización de pedidos**: el tooltip de cada pedido muestra su costo estimado (fasón + flete).
 
 ## Pasos
 
 ### 1. Supabase (≈10 min)
 1. https://supabase.com → New project.
-2. **SQL Editor** → New query → pegar todo `supabase.sql` → **Run**. La última consulta tiene que devolver `45` y `16`.
+2. **SQL Editor** → New query → pegar todo `supabase.sql` → **Run**. La última consulta tiene que devolver `45`, `16` y `45` máquinas con tarifa.
 3. **Table Editor**: verificar las tablas `puntos` y `pedidos`.
 4. **Project Settings → API** (o *Data API / API Keys*): copiar **Project URL** y la clave **anon / publishable**. Nunca usar la `service_role`.
 
@@ -73,4 +74,4 @@ O desde la web: crear repo → *Add file → Upload files* (sin `node_modules` n
 URL de Vercel · captura del tablero (desde la URL publicada) · link al repo · los dos CSV · la descripción de arriba.
 
 ## Supuestos del simulador
-Distancia = línea recta × 1,3 (factor de ruta urbana) · velocidad promedio 35 km/h en el conurbano. Son parámetros al inicio de `App.jsx`, fáciles de ajustar.
+Distancia = línea recta × 1,3 (factor de ruta urbana) · velocidad promedio 35 km/h en el conurbano · flete $ 1.800 por km (ida + vuelta) · tarifas por hora entre $ 18.500 (router madera) y $ 51.500 (centro de mecanizado grande), según proceso y tamaño de máquina. Valores de referencia simulados, en ARS sin IVA. El flete y los supuestos de distancia son parámetros al inicio de `App.jsx`; las tarifas están en la columna `tarifa_hora` de Supabase.

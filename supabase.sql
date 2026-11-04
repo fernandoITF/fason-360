@@ -131,5 +131,55 @@ as $$
 $$;
 grant execute on function public.registrar_visita() to anon;
 
+-- Tarifas: precio de referencia por hora-máquina en ARS (valores simulados para la PoC)
+alter table public.puntos add column if not exists tarifa_hora integer;
+update public.puntos as p set tarifa_hora = t.tarifa from (values
+  (1,35000),
+  (2,38000),
+  (3,41000),
+  (4,32500),
+  (5,43500),
+  (6,32500),
+  (7,38000),
+  (8,32500),
+  (9,32500),
+  (10,35000),
+  (11,27000),
+  (12,37000),
+  (13,27000),
+  (14,37000),
+  (15,37000),
+  (16,27000),
+  (17,31500),
+  (18,28500),
+  (19,28500),
+  (20,25500),
+  (21,34500),
+  (22,25500),
+  (23,28500),
+  (24,25500),
+  (25,34500),
+  (26,38000),
+  (27,38000),
+  (28,45000),
+  (29,38000),
+  (30,38000),
+  (31,38000),
+  (32,51500),
+  (33,25500),
+  (34,25500),
+  (35,18500),
+  (36,22000),
+  (37,18500),
+  (38,25500),
+  (39,22000),
+  (40,46000),
+  (41,42000),
+  (42,46000),
+  (43,34000),
+  (44,38000),
+  (45,34000)
+) as t(id, tarifa) where p.id = t.id;
+
 -- Control: debe devolver 45 y 16
-select (select count(*) from public.puntos) as maquinas, (select count(*) from public.pedidos) as pedidos, (select total from public.visitas) as visitas;
+select (select count(*) from public.puntos) as maquinas, (select count(*) from public.pedidos) as pedidos, (select total from public.visitas) as visitas, (select count(tarifa_hora) from public.puntos) as con_tarifa;
